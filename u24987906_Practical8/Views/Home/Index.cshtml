@@ -1,0 +1,30 @@
+﻿@model IEnumerable<u24987906_Practical8.Models.Equipment>
+@{
+    ViewData["Title"] = "Equipment List";
+}
+
+<div class="text-center">
+    <h2 class="display-4">Hospital Equipment</h2>
+</div>
+
+<table class="table table-striped mt-4">
+    <thead class="table-dark">
+        <tr>
+            <th>Equipment ID</th>
+            <th>Equipment Name</th>
+            <th>Equipment Type</th>
+            <th>Purchase Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.equipmentID</td>
+                <td>@item.equipmentName</td>
+                <td>@item.equipmentType</td>
+                <td>@item.purchaseDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

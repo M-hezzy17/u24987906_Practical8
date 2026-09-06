@@ -1,0 +1,40 @@
+﻿@model u24987906_Practical8.Models.Equipment
+
+@{
+    ViewData["Title"] = "Explicit Loading";
+}
+
+<div class="mt-4">
+    <h2 class="text-warning">Explicit Loading Demonstration</h2>
+
+    
+    <div class="card mb-4 border-warning">
+        <div class="card-body">
+            <h4 class="card-title">@Model.equipmentName</h4>
+            <p class="card-text"><strong>Type:</strong> @Model.equipmentType</p>
+            <p class="card-text"><strong>Purchase Date:</strong> @Model.purchaseDate.ToShortDateString()</p>
+        </div>
+    </div>
+
+    
+    <h4>Maintenance History</h4>
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Maintenance Date</th>
+                <th>Description</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var record in Model.MaintenanceRecords)
+            {
+                <tr>
+                    <td>@record.maintenanceDate.ToShortDateString()</td>
+                    <td>@record.Description</td>
+                    <td>R @record.maintenanceCost</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
